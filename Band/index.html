@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title> Schedule Band </title>
+
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="js/jquerymobile-swipeupdown.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+ 	<link rel="stylesheet" href="css/jquery.mobile.min.css" /> 
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body onload="getToday()">
+	<div data-role="page" id="main">
+    	<div data-role="header" align="center" id="main_header">
+    		<h1 id="textbox"></h1>
+    	</div><!-- /header -->
+    
+    	<div data-role="content" class=head>
+    		<div id="p_schedule">
+  
+			</div>
+			
+			<div id="g_schedule">
+
+			</div>
+			
+    	</div><!-- /content -->
+	
+		<div data-role="footer" data-id="fool" data-position="fixed" data-tap-toggle="false" >
+		<div data-role="navbar">
+			<ul>
+				<li><button class="ui-btn-b ui-corner-all"  onclick="setNotification()" data-icon="plus"> Add </button></li>
+				<li><button class="ui-btn ui-btn-b ui-corner-all" onclick="insert()" data-icon="back"> Today </button></li>
+			</ul>
+		</div>	
+		</div> <!-- /footer  -->
+	</div><!-- /page -->
+
+	<!-- Test Detail Page -->
+	<div data-role="page" id="detail">
+    	<div data-role="header" align="center">
+        	<h1 id="textbox" style="color:red"> Mobile </h1>
+    	</div><!-- /header -->
+    
+    	<div data-role="content" >
+        	<ul data-role="listview" data-inset="true" data-filter="false" id="schedule_list">
+				<li id="contents"> Contents : </li>
+				<li id="time"> Time : </li>
+				<li id="category"> Category : </li>
+				<li id="alarm"> Alarm : </li>
+				<li><a href="place.html"> Place </a></li>
+			</ul>
+    	</div><!-- /content -->
+		
+		
+		<div data-role="footer" data-id="fool" data-position="fixed" data-tap-toggle="false" >
+		<div data-role="navbar">
+			<ul>
+			<li><a href="#main" data-role="button" data-icon="back"> Back </a></li>
+			</ul>
+		</div>
+		</div><!-- /footer -->
+	</div><!-- /page -->
+
+ 	<script>
+ 	
+		var _date = getDate();
+		var _month = getMonth();
+		var _year = getYear();
+  
+		function getDay(){
+			var d = new Date();
+		  	var year = d.getFullYear();
+		  	var month = d.getMonth() + 1;
+		  	var date = d.getDate();
+			document.getElementById("textbox").innerHTML = _year + "." + _month + "." + _date;
+		}
+		
+		function getToday(){
+		  	var d = new Date();
+		  	var year = d.getFullYear();
+		  	var month = d.getMonth() + 1;
+		  	var date = d.getDate();
+			document.getElementById("textbox").innerHTML = year + "." + month + "." + date;
+
+			selectSchedule(year,month,date);
+		}
+		
+		function getDate(){
+			var d = new Date();
+			var date = d.getDate();
+			return date;
+		}
+		
+		function getMonth(){
+			var d = new Date();
+			var month = d.getMonth() + 1;
+			return month;
+		}
+		
+		function getYear(){
+			var d = new Date();
+			var year = d.getFullYear();
+			return year;
+		}
+		
+	 
+	function createDB(){
+		db = window.openDatabase("SCHEDULE","1.0","Personal Schedule",1024*1024);
+	}
+
+	function createTable_schedule(){
+		db.transaction(function(tx){
+		tx.executeSql("create table Schedule(id, year, month, date, hour, minute, title, contents, category, alarm,type)");
+		});
+	}
+
+	function insertSchedule(id, year, month, date, hour, minute, title, contents, category, alarm, type){
+		db.transaction(function(tx){
+			tx.executeSql("insert into Schedule values(?,?,?,?,?,?,?,?,?,?,?)", [id, year, month, date, hour, minute, title, contents, category, alarm, type]);
+			});
+	}
+
+	function selectSchedule(year,month,date) {
+
+		$("#p_schedule").html("<ul data-role='listview' data-inset='true' data-filter='false' id='personal'>");
+		$("#g_schedule").html("<ul data-role='listview' data-inset='true' data-filter='false' id='group'>");
+		$("#personal").append("<li data-role='list-divider'> 개인 </li>");
+		$("#group").append("<li data-role='list-divider'> 그룹 </li>");
+		
+		db.transaction(function(tx){
+			tx.executeSql("select * from Schedule",[],
+				function(tx,result){
+
+					for(var i=0; i<result.rows.length; i++)
+					{
+						var row = result.rows.item(i);
+						var contents = row['contents'];
+						if(row['year'] == year && row['month'] == month && row['date'] == date)
+							{
+								if(row['type'] == "p")
+									$("#personal").append("<li><a href='#'> "+row['title']+" </a></li>");
+								if(row['type'] == "g")
+									$("#group").append("<li><a href='#'> "+row['title']+" </a></li>");
+									
+								//$("#personal").listview("refresh");
+								//$('#personal').listview().listview('refresh');
+							}
+					}
+					$('#personal').listview().listview('refresh');
+					$('#group').listview().listview('refresh');
+				});
+			});
+		$('#personal').listview().listview('refresh');
+		$('#group').listview().listview('refresh');
+	}
+	
+	function deleteTable(){
+		db.transaction(function(tx){
+		tx.executeSql("drop table Schedule");
+		});
+	}
+
+	function insert() {
+		insertSchedule("1","2015","5","23","15","34","NEW1","Boy","Semina","10","p");
+		insertSchedule("1","2015","5","23","15","34","NEW2","Boy","Semina","10","p");
+		insertSchedule("1","2015","5","22","15","34","EW1","Boy","Semina","10","g");
+		insertSchedule("1","2015","5","25","15","34","NEW1","Boy","Semina","10","g");
+		}
+
+
+	createDB();
+	
+	createTable_schedule();
+		
+	//selectSchedule("2015","5","24");
+	
+	//deleteTable();
+	
+	function setNotification() {
+		try {
+		      var appControl = new tizen.ApplicationControl(
+		                       "http://tizen.org/appcontrol/operation/create_content",
+		                       null,
+		                       "image/jpg",
+		                       null);
+		      var notificationDict = {
+		                  content : "This is a simple notification.",
+		                  iconPath : "image1.jpg",
+		                  soundPath : "music/Over the horizon.mp3", 
+		                  vibration : true, 
+		                  appControl : appControl};
+		       
+		      var notification = new tizen.StatusNotification("SIMPLE", 
+		                  "Simple notification", notificationDict);
+		                       
+		      tizen.notification.post(notification);
+		 } catch (err) {
+		      console.log (err.name + ": " + err.message);
+		 }
+	}
+	
+	</script>
+	 
+	
+</body>
+</html>

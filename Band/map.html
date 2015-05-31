@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title> Schedule Band </title>
+
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="js/jquerymobile-swipeupdown.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+ 	<link rel="stylesheet" href="css/jquery.mobile.min.css" /> 
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="./js/googleLocation.js"></script>
+	<script type="text/javascript" src="./js/googleDistance.js"></script>
+</head>
+
+<body>
+
+	<div id="googleMap"></div>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script>
+	function printMap() {
+		latlon = new google.maps.LatLng(50, 40);
+	    mapholder = document.getElementById('googleMap');
+	    mapholder.style.height = '150px';
+	    mapholder.style.width = '300px';
+	
+	    var myOptions = {
+	    center:latlon,zoom:17,
+	    mapTypeId:google.maps.MapTypeId.ROADMAP,
+	    mapTypeControl:false,
+	    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+	    };
+	    
+	    var map = new google.maps.Map(document.getElementById('googleMap'), myOptions);
+	    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"}); 
+	}
+</script>
+
+</body>
+</html>

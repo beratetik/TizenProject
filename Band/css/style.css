@@ -1,0 +1,16 @@
+* {
+    font-family: Verdana, Lucida Sans, Arial, Helvetica, sans-serif;
+}
+
+#textbox {
+	color:#0956ad;
+	font-size:12pt;
+	font-weight:bold;	
+}
+
+#main_header {
+	background-image: url("back.jpg");
+}
+
+<!-- background-image: url("header.png"); -->
+<!-- background-color:#ffffff; -->
