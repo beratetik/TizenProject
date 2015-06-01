@@ -4,15 +4,55 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>/l3i7XAcs3KSFJ45oAEwj5F0I7wF3KYtGDISIHzaAyU=</DigestValue>
+<DigestValue>vIYZHkVPajymnEx530z8mxnHkQoZrqW3UgSjXrHOi8s=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>QPjVe1arbw4eYC7VPTZXDbPRi6W2gysw5m0W0WnXlz0=</DigestValue>
+<DigestValue>nLp/l7rFl6JWd4aPcwpBpKeHncID0Tn90zz/Rg55xO0=</DigestValue>
+</Reference>
+<Reference URI="css%2Fjquery.mobile.min.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>ofETIFmuKXiVQil+cQ1tReYDB/lh0lrMyxLdsw+NG8w=</DigestValue>
+</Reference>
+<Reference URI="css%2Fstyle.css">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>mVyzTIt7toDjqJDyK8zFNfUxuVnC7msv17Oai/+NZdI=</DigestValue>
 </Reference>
 <Reference URI="icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Y1QeYL1C383YGICWvcKmTdXBdJtr5o0fpvPRYFwwbBI=</DigestValue>
+<DigestValue>1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=</DigestValue>
+</Reference>
+<Reference URI="images%2Ftizen_32.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>eDr9ZPFlGlapLDnI1BiALwqovNdBvx3Aspc/lWOH3WI=</DigestValue>
+</Reference>
+<Reference URI="index.html">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>1f9DfXy/tAj1InhYBRyvICDBSRmITJmFrBka/LkyKNg=</DigestValue>
+</Reference>
+<Reference URI="js%2Fjquery-1.9.1.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>e9gNBsAcA0DBuRWbm0oZfbiCyhjLrI6bmqAl5o+ZjUA=</DigestValue>
+</Reference>
+<Reference URI="js%2Fjquery.mobile.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>1PYCpx/EXA36KN1NKrK7auaTylVyk01D98R7Ccf04Bc=</DigestValue>
+</Reference>
+<Reference URI="js%2Fjquery.mobile.min.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>Lsk+CDPOzTapLoAzWW0G/WeQeViS3FMzywpzPZV8SXk=</DigestValue>
+</Reference>
+<Reference URI="js%2Fjquerymobile-swipeupdown.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>fN2JaU2h1QKVahrtA4LJB/0eDSdIjAOmgPhR6lBFKBw=</DigestValue>
+</Reference>
+<Reference URI="js%2Fmain.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>umm7JsuZjKmhcD/q2RzYKOXLCCyoLJXXlS+isdTC8vU=</DigestValue>
+</Reference>
+<Reference URI="version.txt">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>MPl0zl/4pJM1CEzTWOGty3/730AfpxtZpYxDSagK0WI=</DigestValue>
 </Reference>
 <Reference URI="#prop">
 <Transforms>
@@ -23,11 +63,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-FMqm4071v7GhEYSU+pPBXwq3UvtcOhvw2qV0dIHoIbXcHULX8QxuXr3aTGP2pBRupeMF9uSkngn7
-fzMSlbKJMYxfPCI2sXlD5J2Ug0vEhJ/rhY0C8FhqM3Pjkyv/8OaPgs5UFxme2UFXO79oXtNPKFIc
-MWlOwEc7ga5B3jA3oyAA7/42kiW7LgxMxhNInX8F0QahC76/go/xSLZ9+pvKAKMUzq32oZpNmWb5
-e3hTOxPruh4//CSwEuEJQ4Zl20Fr7xPNMCI/Cs9Iw+qAV4zF6Lp8EH0BS/EEtvdZZeGd6aJ/6bcf
-jC6y5CrZB5khFK7mf3Z9YzB436vfYy682J+4Vw==
+B2U7WgeAttX9NMffOCPGhxSztaTYnrieRWF3obL8OXJwHU6qq9eja27Lp6roD5zjD6FmAtmIwIF4
+IXONURNTblS2qs+ggEfrZ+FdjHOMDr7NKMEHVIGokMpsz5rwBAf/gXPkWAnG3D+ZwfaUPOW9wJu4
+2E7q8QRTEeJLgltfcQ18Yw1HB+tFn57iFH8czmMXGTfpKItMVGmUsxKBACmze5wyxaAdxouiV41f
+iI+wIXQwq4KbVo0sixSWPgJtZhjDekEYJMgxG4kag76tOZyLXiT1aieYvFciQO3nIIl8jIhj7mXi
+vNbFNc4HBlph7H4CdbIfpXqFLEQ7i4Xg4UbSXA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/AddScheduleTest" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="rwmz8HPRZJ.AddScheduleTest" package="rwmz8HPRZJ" required_version="2.3"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <icon src="icon.png"/>
+    <name>AddScheduleTest</name>
+    <tizen:profile name="mobile"/>
+</widget>
